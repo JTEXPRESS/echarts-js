@@ -42,7 +42,7 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.jnt'
+                groupId = 'com.jnt.echarts'
                 artifactId = 'echarts-js'
                 version = '1.0.0'
             }
