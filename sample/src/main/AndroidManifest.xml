@@ -10,14 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.EChartsJS"
         android:supportsRtl="true"
-        tools:node="replace">
-        <activity android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+        tools:node="replace"/>
 
 </manifest>
