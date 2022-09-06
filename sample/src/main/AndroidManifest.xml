@@ -9,10 +9,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.EChartsJS"
+        android:supportsRtl="true"
         tools:node="replace">
         <activity android:name=".MainActivity"
-            android:exported="true"
-            tools:ignore="Instantiatable">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
