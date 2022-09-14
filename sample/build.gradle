@@ -28,8 +28,7 @@ android {
 }
 
 dependencies {
-    //noinspection GradleCompatible
-    implementation 'androidx.appcompat:appcompat:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation project(":echarts")
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

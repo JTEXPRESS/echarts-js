@@ -3,12 +3,12 @@ package com.jnt.echarts;
 import android.webkit.JavascriptInterface;
 
 public class JsInterface {
-    private final ItemOnClickListener itemOnClickListener;
+    private final EChartsListener EChartsListener;
 
-    public JsInterface(ItemOnClickListener itemOnClickListener) { this.itemOnClickListener = itemOnClickListener; }
+    public JsInterface(EChartsListener EChartsListener) { this.EChartsListener = EChartsListener; }
 
     @JavascriptInterface
     public void indexClick(int index) {
-        if (itemOnClickListener != null) itemOnClickListener.onIndex(index);
+        if (EChartsListener != null) EChartsListener.onIndex(index);
     }
 }

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.jnt.echarts.ECharts;
+import com.jnt.echarts.EChartsView;
 import com.jnt.echarts.options.Legend;
 import com.jnt.echarts.options.Tooltip;
 import com.jnt.echarts.options.code.Align;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ECharts eCharts                 = findViewById(R.id.echarts);
+        EChartsView eChartsView = findViewById(R.id.echarts);
         Pie pie                         = new Pie("1");
         GsonOption option               = new GsonOption();
         ArrayList<Color.Item> colorItem = new ArrayList<>();
@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 .series(pie)
                 .tooltip(new Tooltip().trigger(Trigger.item).formatter("<b>{b}</b> <br/>{c} (<i>{d}%</i>)"));
 
-        eCharts.setTheme("light");
-        eCharts.setOption(option);
-        eCharts.build();
+        eChartsView.setTheme("light");
+        eChartsView.setOption(option);
+        eChartsView.build();
     }
 }

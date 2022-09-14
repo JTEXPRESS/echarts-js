@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-public class Utils {
+public class EChartsUtils {
     public static String getMain(Context context) {
         InputStream inputStream         = context.getResources().openRawResource(R.raw.main);
         BufferedReader bufferedReader   = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));

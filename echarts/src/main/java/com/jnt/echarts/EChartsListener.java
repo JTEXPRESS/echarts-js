@@ -1,5 +1,5 @@
 package com.jnt.echarts;
 
-public interface ItemOnClickListener {
+public interface EChartsListener {
     void onIndex(int index);
 }
