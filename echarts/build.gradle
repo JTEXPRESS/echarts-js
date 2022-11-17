@@ -3,23 +3,65 @@ plugins {
     id 'maven-publish'
 }
 
-ext {
-    PUBLISH_GROUP_ID    = 'com.github.JTEXPRESS'
-    PUBLISH_ARTIFACT_ID = 'echarts-js'
-    PUBLISH_VERSION     = '1.0.13'
+//ext {
+//    PUBLISH_GROUP_ID    = 'com.github.JTEXPRESS'
+//    PUBLISH_ARTIFACT_ID = 'echarts-js'
+//    PUBLISH_VERSION     = '1.0.0'
+//}
+//
+//group   = PUBLISH_GROUP_ID
+//version = PUBLISH_VERSION
+//
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//                groupId     = PUBLISH_GROUP_ID
+//                artifactId  = PUBLISH_ARTIFACT_ID
+//                version     = PUBLISH_VERSION
+//            }
+//            debug(MavenPublication) {
+//                from components.debug
+//                groupId     = PUBLISH_GROUP_ID
+//                artifactId  = PUBLISH_ARTIFACT_ID
+//                version     = PUBLISH_VERSION
+//            }
+//        }
+//
+//    }
+//}
+
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+
+def getVersionName = { ->
+    return "1.0.0"
 }
 
-group   = PUBLISH_GROUP_ID
-version = PUBLISH_VERSION
+def getArtificatId = { ->
+    return "echarts-js"
+}
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId     = PUBLISH_GROUP_ID
-                artifactId  = PUBLISH_ARTIFACT_ID
-                version     = PUBLISH_VERSION
+publishing {
+    publications {
+        bar(MavenPublication) {
+            groupId 'com.github.JTEXPRESS'
+            artifactId getArtificatId()
+            version getVersionName()
+            artifact("$buildDir/outputs/aar/${getArtificatId()}-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/JTEXPRESS/echarts-js")
+
+            credentials {
+                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
             }
         }
     }
