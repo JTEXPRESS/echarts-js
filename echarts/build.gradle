@@ -41,7 +41,7 @@ def getVersionName = { ->
 }
 
 def getArtificatId = { ->
-    return "echarts-js"
+    return "echarts"
 }
 
 publishing {
