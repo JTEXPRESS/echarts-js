@@ -56,7 +56,7 @@ publishing {
 
     repositories {
         maven {
-            name = "GitHubPackages"
+            name = "echarts-js"
             url = uri("https://maven.pkg.github.com/JTEXPRESS/echarts-js")
 
             credentials {
